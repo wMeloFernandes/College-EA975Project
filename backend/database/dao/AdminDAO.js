@@ -1,9 +1,9 @@
-function UserDAO(connection){
+function AdminDAO(connection){
 	this._connection = connection();
 }
 
 
 
 module.exports = function(){
-	return UserDAO;
+	return AdminDAO;
 }
