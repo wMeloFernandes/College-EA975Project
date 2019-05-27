@@ -6,8 +6,12 @@ module.exports = function(app){
 
     router.route('/login')
         .post((req, res)=>{
+            //USER CONTROLLER
+        });
 
-        })
-
+    router.route('/loginAdm')
+        .post((req, res)=>{
+            //ADM CONTROLLER
+        });
 
 }
