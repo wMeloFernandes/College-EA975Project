@@ -9,6 +9,7 @@ app.use(bodyParser.json());
 consign()
 	.include('/routes')
 	.then('/controllers')
+	.then('/database/dao')
 	.into(app);
 
 module.exports = app;
