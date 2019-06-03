@@ -17,3 +17,7 @@ module.exports.updateUSer = (app, req, res)=>{
 module.exports.deleteUser = (app, req, res)=>{
 
 }
+
+module.exports.generateQRCode = (app, req, res)=>{
+    
+}
