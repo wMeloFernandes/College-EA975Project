@@ -4,12 +4,12 @@ module.exports = function(app){
 
     app.route('/login')
         .post((req, res)=>{
-            res.send('OIA');
+            LoginController.makeUserLogin(app, req, res);
         });
 
     app.route('/loginAdm')
         .post((req, res)=>{
-            //ADM CONTROLLER
+            LoginController.makeAdminLogin(app, req, res);
         });
 
 }

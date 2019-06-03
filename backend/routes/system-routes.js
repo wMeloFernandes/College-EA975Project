@@ -1,36 +1,39 @@
 const AdminController = require('./../controllers/admin-controller');
+const UserController = require('./../controllers/user-controller');
+
 module.exports = function(app){
 
     app.route('/admin')
         .get((req, res)=>{
+            AdminController.getUserByID(app, req, res);
         })
         .post((req, res)=>{
-            //AdminController.createUser(app, req, res);
+            AdminController.createUser(app, req, res);
         })
         .put((req, res)=>{
-            //UPDATE USER
+            AdminController.updateUSer(app, req, res);
         })
         .delete((req, res)=>{
-            //DELETE USER
+            AdminController.deleteUser(app, req, res);
         });
 
     app.route('/adminAll')
         .get((req, res)=>{
-            //GET ALL USERS
+            AdminController.getUsers(app, req, res);
         });
 
 
     app.route('/qrCode')
         .get((req, res)=>{
-            //GET QR CODE
+            AdminController.generateQRCode(app, req, res);
         });
 
     app.route('/user')
         .get((req, res)=>{
-            //GET CLOCK REGISTER
+            UserController.getClockRegister(app, req, res);
         })
         .post((req, res)=>{
-            //CLOCKIN
+            UserController.clockIn(app, req, res);
         });
 
 }
