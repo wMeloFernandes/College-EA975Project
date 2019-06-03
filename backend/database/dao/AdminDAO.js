@@ -20,6 +20,11 @@ AdminDAO.prototype.createUser = function(data, callback){
     });  
 }
 
+AdminDAO.prototype.deleteUser = function(data, callback){
+	userModel.findOneAndRemove(data, (err, result)=>{
+		callback(err, result);
+	});
+}
 
 module.exports = function(){
 	return AdminDAO;
