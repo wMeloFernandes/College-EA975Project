@@ -1,5 +1,16 @@
 module.exports.getUsers = (app, req, res)=>{
-        
+    const AdminDAO = new app.database.dao.AdminDAO();
+    AdminDAO.getAllUsers((err, result)=>{
+        if(err){
+            console.error(err);
+            res.send('Problem getting users!');
+        }else{
+            res.status(200).json({
+                users: result
+            });
+        }
+       
+    });   
 }
 
 module.exports.getUserByID = (app, req, res)=>{
