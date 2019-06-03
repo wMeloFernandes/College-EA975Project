@@ -7,9 +7,8 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 
 consign()
-	.include('routes')
-	.then('database/db-Connetion.js')
-	.then('controllers')
+	.include('/routes')
+	.then('/controllers')
 	.into(app);
 
 module.exports = app;

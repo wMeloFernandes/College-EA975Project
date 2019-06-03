@@ -1,14 +1,11 @@
-const express = require('express');
-const router = express.Router();
-
+const AdminController = require('./../controllers/admin-controller');
 module.exports = function(app){
 
-    router.route('/admin')
+    app.route('/admin')
         .get((req, res)=>{
-            //GET USER BY ID
         })
         .post((req, res)=>{
-            //CREATE USER
+            //AdminController.createUser(app, req, res);
         })
         .put((req, res)=>{
             //UPDATE USER
@@ -17,17 +14,18 @@ module.exports = function(app){
             //DELETE USER
         });
 
-    router.route('/adminAll')
+    app.route('/adminAll')
         .get((req, res)=>{
             //GET ALL USERS
         });
 
-    router.route('/qrCode')
+
+    app.route('/qrCode')
         .get((req, res)=>{
             //GET QR CODE
         });
 
-    router.route('/user')
+    app.route('/user')
         .get((req, res)=>{
             //GET CLOCK REGISTER
         })

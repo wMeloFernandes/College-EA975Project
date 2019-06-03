@@ -1,15 +1,13 @@
-const express = require('express');
-const router = express.Router();
 const LoginController = require('./../controllers/login-controller');
 
 module.exports = function(app){
 
-    router.route('/login')
+    app.route('/login')
         .post((req, res)=>{
-            //USER CONTROLLER
+            res.send('OIA');
         });
 
-    router.route('/loginAdm')
+    app.route('/loginAdm')
         .post((req, res)=>{
             //ADM CONTROLLER
         });
