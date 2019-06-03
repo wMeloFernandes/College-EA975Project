@@ -9,6 +9,12 @@ AdminDAO.prototype.getAllUsers = function(callback){
 	});
 }
 
+AdminDAO.prototype.getUserByEmail = function(data, callback){
+	userModel.findOne(data, (err, result)=>{
+		callback(err, result);
+	})
+}
+
 AdminDAO.prototype.createUser = function(data, callback){
 	var db = new userModel();
     db.name = data.name;

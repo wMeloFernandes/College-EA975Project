@@ -9,12 +9,24 @@ module.exports.getUsers = (app, req, res)=>{
                 users: result
             });
         }
-       
     });   
 }
 
 module.exports.getUserByID = (app, req, res)=>{
-
+    const userModel = {
+        email: req.body.email
+    };
+    const AdminDAO = new app.database.dao.AdminDAO();
+    AdminDAO.getUserByEmail(userModel, (err, result)=>{
+        if(err){
+            console.error(err);
+            res.send('Problem getting user!');
+        }else{
+            res.status(200).json({
+                user: result
+            });
+        }
+    });
 }
 
 module.exports.createUser = (app, req, res)=>{
@@ -62,7 +74,6 @@ module.exports.updateUSer = (app, req, res)=>{
 
 module.exports.deleteUser = (app, req, res)=>{
     const userModel = {
-        name: req.body.name,
         email: req.body.email
     };
 
