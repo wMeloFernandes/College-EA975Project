@@ -59,7 +59,7 @@ module.exports.updateUSer = (app, req, res)=>{
     };
 
     const AdminDAO = new app.database.dao.AdminDAO();
-    AdminDAO.updateUSer(userModel, (err)=>{
+    AdminDAO.updateUser(userModel, (err)=>{
         if(err){
             console.error(err);
             res.send('Problem when update user');

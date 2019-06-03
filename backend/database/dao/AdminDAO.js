@@ -26,6 +26,12 @@ AdminDAO.prototype.createUser = function(data, callback){
     });  
 }
 
+AdminDAO.prototype.updateUser = function(data, callback){
+	userModel.findOneAndUpdate({"email":data.email}, {name: data.name, job:data.job}, (err, result)=>{
+		callback(err, result);
+	});
+}
+
 AdminDAO.prototype.deleteUser = function(data, callback){
 	userModel.findOneAndRemove(data, (err, result)=>{
 		callback(err, result);
