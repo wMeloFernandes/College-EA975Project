@@ -1,5 +1,4 @@
-function UserDAO(connection){
-	this._connection = connection();
+function UserDAO(){
 }
 
 

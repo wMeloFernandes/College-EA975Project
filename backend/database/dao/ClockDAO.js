@@ -1,5 +1,4 @@
-function ClockDAO(connection){
-	this._connection = connection();
+function ClockDAO(){
 }
 
 
