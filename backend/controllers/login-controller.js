@@ -4,8 +4,8 @@ module.exports.makeUserLogin = (app,req, res)=>{
         password: req.body.password
     };
 
-    const AdminDAO = new app.database.dao.AdminDAO();
-    AdminDAO.validateUser(userModel, (err, result)=>{
+    const UserDAO = new app.database.dao.UserDAO();
+    UserDAO.validateUser(userModel, (err, result)=>{
         if(err){
             console.error(err);
             res.status(500).json({
@@ -18,7 +18,7 @@ module.exports.makeUserLogin = (app,req, res)=>{
                 });
             }else{
                 res.status(401).json({
-                    
+                    message: "Unauthorized!"
                 });
             }
         }
