@@ -1,6 +1,6 @@
 module.exports.getUsers = (app, req, res)=>{
-    const AdminDAO = new app.database.dao.AdminDAO();
-    AdminDAO.getAllUsers((err, result)=>{
+    const UserDAO = new app.database.dao.UserDAO();
+    UserDAO.getAllUsers((err, result)=>{
         if(err){
             console.error(err);
             res.send('Problem getting users!');
@@ -16,8 +16,8 @@ module.exports.getUserByID = (app, req, res)=>{
     const userModel = {
         email: req.body.email
     };
-    const AdminDAO = new app.database.dao.AdminDAO();
-    AdminDAO.getUserByEmail(userModel, (err, result)=>{
+    const UserDAO = new app.database.dao.UserDAO();
+    UserDAO.getUserByEmail(userModel, (err, result)=>{
         if(err){
             console.error(err);
             res.send('Problem getting user!');
@@ -37,8 +37,8 @@ module.exports.createUser = (app, req, res)=>{
         password: req.body.password
     };
     
-    const AdminDAO = new app.database.dao.AdminDAO();
-    AdminDAO.createUser(userModel, (err)=>{
+    const UserDAO = new app.database.dao.UserDAO();
+    UserDAO.createUser(userModel, (err)=>{
         if(err){
             console.error(err);
             res.send('Problem when create new user');
@@ -58,8 +58,8 @@ module.exports.updateUSer = (app, req, res)=>{
         email: req.body.email
     };
 
-    const AdminDAO = new app.database.dao.AdminDAO();
-    AdminDAO.updateUser(userModel, (err)=>{
+    const UserDAO = new app.database.dao.UserDAO();
+    UserDAO.updateUser(userModel, (err)=>{
         if(err){
             console.error(err);
             res.send('Problem when update user');
@@ -77,8 +77,8 @@ module.exports.deleteUser = (app, req, res)=>{
         email: req.body.email
     };
 
-    const AdminDAO = new app.database.dao.AdminDAO();
-    AdminDAO.deleteUser(userModel, (err)=>{
+    const UserDAO = new app.database.dao.UserDAO();
+    UserDAO.deleteUser(userModel, (err)=>{
         if(err){
             console.error(err);
             res.send('Problem when delete user');
