@@ -1,5 +1,12 @@
 const userModel = require('./../../models/user-model');
+
 function AdminDAO(){
+}
+
+AdminDAO.prototype.getAllUsers = function(callback){
+	userModel.find({}, (err, result)=>{
+		callback(err, result);
+	});
 }
 
 AdminDAO.prototype.createUser = function(data, callback){
