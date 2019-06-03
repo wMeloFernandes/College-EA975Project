@@ -12,6 +12,12 @@ ClockDAO.prototype.clockIn = function(data, callback){
 	});
 }
 
+ClockDAO.prototype.getRegisters = function(data, callback){
+	clockModel.find(data, (err, result)=>{
+		callback(err, result);
+	})
+}
+
 
 module.exports = function(){
 	return ClockDAO;

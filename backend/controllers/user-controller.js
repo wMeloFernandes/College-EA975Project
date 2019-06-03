@@ -19,5 +19,21 @@ module.exports.clockIn = (app, req, res)=>{
 }
 
 module.exports.getClockRegister = (app, req, res)=>{
+    const clockModel = {
+        email: req.body.email
+    };
+
+    const ClockDAO = new app.database.dao.ClockDAO();
+    ClockDAO.getRegisters(clockModel, (err, result)=>{
+        if(err){
+            console.error(err);
+            res.send('Problem when get registers time');
+        }else{
+            res.status(200).json({
+                registers: result
+            });
+        }
+       
+    });
 
 }
