@@ -1,23 +1,30 @@
-module.exports.makeLogin = (app,req, res)=>{
-    const username = req.body.username;
-    const password = req.body.password;
-    const UserDAO = new app.database.dao.UserDAO(app.database.db-Connection);
-
-    const dataObject = {
-        username: username,
-        password: password
+module.exports.makeUserLogin = (app,req, res)=>{
+    const userModel = {
+        email: req.body.email,
+        password: req.body.password
     };
 
-    UserDAO.login(dataObject, (err, result)=>{
+    const AdminDAO = new app.database.dao.AdminDAO();
+    AdminDAO.validateUser(userModel, (err, result)=>{
         if(err){
-            res.status(401).json({
-                message: ''
+            console.error(err);
+            res.status(500).json({
+                message: 'Problem getting user!'
             });
         }else{
-            res.status(200).json({
-                message: ''
-            });
+            if(result.length >0){
+                res.status(200).json({
+                    user: result
+                });
+            }else{
+                res.status(401).json({
+                    
+                });
+            }
         }
-    })
+    });
+}
+
+module.exports.makeAdminLogin = (app, req, res)=>{
 
 }

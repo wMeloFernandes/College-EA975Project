@@ -15,6 +15,12 @@ AdminDAO.prototype.getUserByEmail = function(data, callback){
 	})
 }
 
+AdminDAO.prototype.validateUser = function(data, callback){
+	userModel.find(data, (err, result)=>{
+		callback(err, result);
+	})
+}
+
 AdminDAO.prototype.createUser = function(data, callback){
 	var db = new userModel();
     db.name = data.name;
