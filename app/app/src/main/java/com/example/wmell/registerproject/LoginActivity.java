@@ -94,7 +94,6 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<LoginResponse> call, Response<LoginResponse> response) {
                 if(response.isSuccessful()){
-                    Log.v("WILLIAN", response.body().toString());
                     LoginResponse loginResponse = response.body();
                     serverCallbackLogin.onSuccess(loginResponse.getToken());
                 }else{
@@ -105,7 +104,6 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onFailure(Call<LoginResponse> call, Throwable t) {
                 serverCallbackLogin.onFail(t);
-                Log.d("WILLIAN", t.getMessage());
             }
         });
     }
