@@ -4,5 +4,5 @@
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
     <color name="laserColor">#FF0000</color>
-    <color name="maskColor">#BFBFBF</color>
+    <color name="maskColor">#000000</color>
 </resources>
