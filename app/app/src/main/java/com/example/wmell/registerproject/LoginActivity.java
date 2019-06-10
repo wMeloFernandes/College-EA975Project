@@ -1,6 +1,8 @@
 package com.example.wmell.registerproject;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -30,10 +32,18 @@ public class LoginActivity extends AppCompatActivity {
     private Button mLogin;
     private ProgressBar mProgressBar;
 
+    public static String USER_PREFERENCES = "USER_PREFERENCES";
+    public static String USER_TOKEN = "USER_TOKEN";
+    public static String IS_USER_LOGIN = "IS_USER_LOGIN";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
+        if(getSharedPreferences(USER_PREFERENCES, Context.MODE_PRIVATE).getBoolean(IS_USER_LOGIN, false)) {
+          startActivity(new Intent(LoginActivity.this, MainActivity.class));
+        }
 
         mUserEmailTextView = findViewById(R.id.tv_email);
         mUserPasswordTextView = findViewById(R.id.tv_password);
@@ -56,6 +66,12 @@ public class LoginActivity extends AppCompatActivity {
                 checkAccess(new ServerCallbackLogin() {
                     @Override
                     public void onSuccess(String token) {
+                        SharedPreferences sharedPreferences = getSharedPreferences(USER_PREFERENCES, Context.MODE_PRIVATE);
+                        SharedPreferences.Editor editor = sharedPreferences.edit();
+                        editor.putString(USER_TOKEN, token);
+                        editor.putBoolean(IS_USER_LOGIN, true);
+                        editor.commit();
+
                         Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                         startActivity(intent);
                     }
