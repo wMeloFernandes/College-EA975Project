@@ -1,3 +1,5 @@
+var jwt = require('jsonwebtoken');
+
 module.exports.makeUserLogin = (app,req, res)=>{
     const userModel = {
         email: req.body.email,
@@ -13,8 +15,13 @@ module.exports.makeUserLogin = (app,req, res)=>{
             });
         }else{
             if(result.length >0){
+                const token = jwt.sign(
+                    { email: userModel.email, id: result[0]._id},
+                    "BV3WdFPNddaTPcDigHWgGJLGCLHBn4p9",
+                    { expiresIn: "1h" }
+                  );
                 res.status(200).json({
-                    user: result[0]
+                    token: token
                 });
             }else{
                 res.status(401).json({
