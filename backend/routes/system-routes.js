@@ -1,5 +1,7 @@
 const AdminController = require('./../controllers/admin-controller');
 const UserController = require('./../controllers/user-controller');
+const checkAuth = require('./../middleware/check-auth-app');
+
 
 module.exports = function(app){
 
@@ -29,10 +31,10 @@ module.exports = function(app){
         });
 
     app.route('/user')
-        .get((req, res)=>{
+        .get(checkAuth, (req, res)=>{
             UserController.getClockRegister(app, req, res);
         })
-        .post((req, res)=>{
+        .post(checkAuth, (req, res)=>{
             UserController.clockIn(app, req, res);
         });
 
