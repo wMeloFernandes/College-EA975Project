@@ -63,7 +63,7 @@ public class LoginActivity extends AppCompatActivity {
                     @Override
                     public void onFail(Throwable throwable) {
                         hideSpinner();
-                        Toast.makeText(LoginActivity.this, "Deu problema", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(LoginActivity.this, "Login failed!", Toast.LENGTH_SHORT).show();
                     }
                 });
             }
@@ -78,8 +78,11 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<LoginResponse> call, Response<LoginResponse> response) {
                 if(response.isSuccessful()){
+                    Log.v("WILLIAN", response.body().toString());
                     LoginResponse loginResponse = response.body();
                     serverCallbackLogin.onSuccess(loginResponse.getToken());
+                }else{
+                    serverCallbackLogin.onFail(null);
                 }
             }
 
@@ -98,6 +101,8 @@ public class LoginActivity extends AppCompatActivity {
         mUserPasswordTextView.setVisibility(View.VISIBLE);
         mUserPassword.setVisibility(View.VISIBLE);
         mLogin.setVisibility(View.VISIBLE);
+        mUserEmail.setText("");
+        mUserPassword.setText("");
     }
 
     private void showSpinner(){

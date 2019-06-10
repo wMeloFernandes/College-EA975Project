@@ -14,7 +14,7 @@ module.exports.makeUserLogin = (app,req, res)=>{
         }else{
             if(result.length >0){
                 res.status(200).json({
-                    user: result
+                    user: result[0]
                 });
             }else{
                 res.status(401).json({
