@@ -1,0 +1,8 @@
+<app-detail-user [user]="selectedUser"></app-detail-user>
+<div *ngIf="!selectedUser">
+    <ul class="list-group">
+        <li *ngFor="let user of users; let i = index" class="list-group-item" (click)="onSelect(user)">
+            <strong> {{user.name}} </strong> <br> {{user.email}}
+        </li> 
+    </ul>
+</div>

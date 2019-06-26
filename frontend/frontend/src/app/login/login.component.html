@@ -1,0 +1,21 @@
+<div class="container">
+	<div class="jumbotron">
+		<h1>SAP </h1>
+		<h2>Login Adiminstrativo</h2>
+	</div>
+</div>
+<div class="container">
+	<div class="row justify-content-center">
+		<div class="col-4">
+			<div class="card">
+				<form class="form-inline">
+					<div>
+						<input class="form-control" [(ngModel)]="login.username" placeholder="Nome de Usuário (Admin)"/>
+						<input class="form-control" [(ngModel)]="login.password" placeholder="Senha"/>
+						<input  class="form-control" type="button" value="Login" (click)="AdminLogin(login)"/>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>

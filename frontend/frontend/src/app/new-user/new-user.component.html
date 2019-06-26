@@ -1,0 +1,11 @@
+
+<div class="col-5 center">
+    <form class="form">
+            <label> Email do novo usuário: </label>
+            <input class="form-control" [(ngModel)]="login.username" placeholder="Email"/>
+            <label> Senha do novo usuário: </label>
+            <input class="form-control" [(ngModel)]="login.password" placeholder="Senha"/>
+            <br>
+            <input  class="form-control" type="button" value="Criar Usuário" (click)="AdminLogin(login)"/>
+    </form>
+</div>

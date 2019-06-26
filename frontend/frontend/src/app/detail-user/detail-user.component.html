@@ -1,0 +1,13 @@
+<div *ngIf="user">
+
+  <h2> Registros de Pontos de {{user.name}} ({{user.id}})</h2>
+  <div>
+
+    <ul class="list-group">
+        <li class="list-group-item" *ngFor="let pontos of user.pontos">
+            {{pontos }}
+        </li>  
+    </ul>
+  </div>
+
+</div>  
