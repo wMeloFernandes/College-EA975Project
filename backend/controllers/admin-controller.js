@@ -51,6 +51,27 @@ module.exports.createUser = (app, req, res)=>{
     });   
 }
 
+module.exports.createAdmin = (app, req, res)=>{
+    const adminModel = {
+        name: req.body.name,
+        email: req.body.email,
+        password: req.body.password
+    };
+    
+    const AdminDAO = new app.database.dao.AdminDAO();
+    AdminDAO.createUser(adminModel, (err)=>{
+        if(err){
+            console.error(err);
+            res.send('Problem when admin new user');
+        }else{
+            res.status(200).json({
+                message: "Admin created!"
+            });
+        }
+       
+    });   
+}
+
 module.exports.updateUSer = (app, req, res)=>{
     const userModel = {
         name: req.body.name,

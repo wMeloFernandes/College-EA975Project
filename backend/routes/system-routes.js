@@ -22,7 +22,10 @@ module.exports = function(app){
     app.route('/adminAll')
         .get((req, res)=>{
             AdminController.getUsers(app, req, res);
-        });
+        })
+        .post((req, res)=>{
+            AdminController.createAdmin(app, req, res);
+        })
 
 
     app.route('/qrCode')
