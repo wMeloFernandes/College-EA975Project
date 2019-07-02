@@ -32,7 +32,7 @@ UserDAO.prototype.createUser = function(data, callback){
 }
 
 UserDAO.prototype.updateUser = function(data, callback){
-	userModel.findOneAndUpdate({"email":data.email}, {name: data.name, job:data.job}, (err, result)=>{
+	userModel.findOneAndUpdate({email:data.email}, {name: data.name, job:data.job}, (err, result)=>{
 		callback(err, result);
 	});
 }
