@@ -1,5 +1,5 @@
 var mongoose = require("mongoose");
-conn = mongoose.createConnection('mongodb://localhost:27017/975system', {useNewUrlParser: true});
+conn = mongoose.createConnection('mongodb://localhost:27017/SAP', {useNewUrlParser: true});
 var Schema = mongoose.Schema;
 var adminSchema = new Schema({
     "name": String,
