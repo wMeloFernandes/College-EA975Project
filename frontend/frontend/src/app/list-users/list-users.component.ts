@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AppService } from './../app.service';
 
 import {User} from '../user';
 
@@ -18,16 +19,22 @@ const USERS: User[] = [
 })
 export class ListUsersComponent implements OnInit {
   selectedUser: User;
+  userList: any;
+  users: any;
 
-  constructor() { }
+  constructor(public appService: AppService) { }
 
   ngOnInit() {
+    this.appService.getAllUsers()
+      .subscribe(resp=>{
+        this.userList = resp['users'];
+        console.log(this.userList);
+        this.users = this.userList;
+      });
   }
 
   onSelect(user){
     this.selectedUser = user;
   }
-
-  users = USERS;
   
 }

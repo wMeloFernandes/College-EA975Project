@@ -75,10 +75,7 @@ export class AppService {
   }
 
   getAllUsers(){
-    this.http.get(BACKEND_URL + "adminAll")
-      .subscribe(result=>{
-        console.log(result);
-      });
+    return this.http.get(BACKEND_URL + "adminAll");
   }
 
   createAdmin(name: string, email: string, password: string){
