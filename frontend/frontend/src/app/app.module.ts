@@ -8,6 +8,7 @@ import { ListUsersComponent } from './list-users/list-users.component';
 import { AppRoutingModule } from './app-routing.module';
 import { DetailUserComponent } from './detail-user/detail-user.component';
 import { NewUserComponent } from './new-user/new-user.component';
+import { HttpClientModule } from '@angular/common/http'
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { NewUserComponent } from './new-user/new-user.component';
   imports: [
     BrowserModule,
     FormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

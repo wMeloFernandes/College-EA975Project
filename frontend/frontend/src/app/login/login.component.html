@@ -1,7 +1,7 @@
 <div class="container">
 	<div class="jumbotron">
 		<h1>SAP </h1>
-		<h2>Login Adiminstrativo</h2>
+		<h2>Login Adminstrativo</h2>
 	</div>
 </div>
 <div class="container">
@@ -10,9 +10,9 @@
 			<div class="card">
 				<form class="form-inline">
 					<div>
-						<input class="form-control" [(ngModel)]="login.username" placeholder="Nome de Usuário (Admin)"/>
-						<input class="form-control" [(ngModel)]="login.password" placeholder="Senha"/>
-						<input  class="form-control" type="button" value="Login" (click)="AdminLogin(login)"/>
+						<input class="form-control" type="email" (input)="onGetEmail($event)" placeholder="E-mail"/>
+						<input class="form-control" type="password" (input)="onGetPassword($event)"  placeholder="Senha"/>
+						<input  class="form-control" type="button" value="Login" (click)="makeLogin()"/>
 					</div>
 				</form>
 			</div>
