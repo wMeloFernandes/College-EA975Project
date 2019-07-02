@@ -14,7 +14,7 @@ module.exports.getUsers = (app, req, res)=>{
 
 module.exports.getUserByID = (app, req, res)=>{
     const userModel = {
-        email: req.body.email
+        email: req.query.email
     };
     const UserDAO = new app.database.dao.UserDAO();
     UserDAO.getUserByEmail(userModel, (err, result)=>{
@@ -95,7 +95,7 @@ module.exports.updateUSer = (app, req, res)=>{
 
 module.exports.deleteUser = (app, req, res)=>{
     const userModel = {
-        email: req.body.email
+        email: req.query.email
     };
 
     const UserDAO = new app.database.dao.UserDAO();
@@ -113,5 +113,7 @@ module.exports.deleteUser = (app, req, res)=>{
 }
 
 module.exports.generateQRCode = (app, req, res)=>{
-    
+    res.status(200).json({
+        qrCode_message: "QRCODE"
+    });
 }
