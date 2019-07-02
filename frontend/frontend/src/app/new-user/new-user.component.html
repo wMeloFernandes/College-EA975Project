@@ -1,11 +1,15 @@
 
 <div class="col-5 center">
     <form class="form">
-            <label> Email do novo usuário: </label>
-            <input class="form-control" [(ngModel)]="login.username" placeholder="Email"/>
-            <label> Senha do novo usuário: </label>
-            <input class="form-control" [(ngModel)]="login.password" placeholder="Senha"/>
+            <label> Nome: </label>
+            <input class="form-control" (input)="onGetName($event)" type="text"  placeholder="User"/>
+            <label> Cargo: </label>
+            <input class="form-control" (input)="onGetJob($event)" type="text" placeholder="Engineer"/>
+            <label> Email: </label>
+            <input class="form-control" (input)="onGetEmail($event)" type="email"  placeholder="test@gmail.com"/>
+            <label> Senha: </label>
+            <input class="form-control" (input)="onGetPassword($event)" type="password"  placeholder="*******"/>
             <br>
-            <input  class="form-control" type="button" value="Criar Usuário" (click)="AdminLogin(login)"/>
+            <input  class="form-control" type="button" value="Criar Usuário" (click)="createUser()"/>
     </form>
 </div>
