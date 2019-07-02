@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AppService } from './../app.service';
 
-import {User} from '../user';
     
 @Component({
   selector: 'app-list-users',
@@ -9,7 +8,7 @@ import {User} from '../user';
   styleUrls: ['./list-users.component.css']
 })
 export class ListUsersComponent implements OnInit {
-  selectedUser: User;
+  selectedUser: any;
   userList: any;
 
   constructor(public appService: AppService) { }
@@ -23,6 +22,7 @@ export class ListUsersComponent implements OnInit {
 
   onSelect(user){
     this.selectedUser = user;
+    console.log(this.selectedUser);
   }
   
 }

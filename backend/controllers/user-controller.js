@@ -1,7 +1,7 @@
 module.exports.clockIn = (app, req, res)=>{
     const clockModel = {
         email: req.body.email,
-        timestamp: req.body.timestamp
+        timestamp: new Date()
     };
     
     const ClockDAO = new app.database.dao.ClockDAO();

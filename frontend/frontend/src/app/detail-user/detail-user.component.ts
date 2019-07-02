@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { AppService } from './../app.service';
 
-import {User} from '../user';
 
 @Component({
   selector: 'app-detail-user',
@@ -8,11 +8,13 @@ import {User} from '../user';
   styleUrls: ['./detail-user.component.css']
 })
 export class DetailUserComponent implements OnInit {
-  @Input() user: User;
+  @Input() user: any;
 
-  constructor() { }
+  constructor(public appService: AppService) { 
+  }
 
   ngOnInit() {
+    
   }
 
 }
