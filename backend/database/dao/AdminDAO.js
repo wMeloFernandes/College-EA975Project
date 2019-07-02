@@ -13,6 +13,12 @@ AdminDAO.prototype.createUser = function(data, callback){
     });  
 }
 
+AdminDAO.prototype.validateUser = function(data, callback){
+	adminModel.find(data, (err, result)=>{
+		callback(err, result);
+	})
+}
+
 module.exports = function(){
 	return AdminDAO;
 }
