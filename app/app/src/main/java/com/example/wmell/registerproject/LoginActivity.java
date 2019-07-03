@@ -35,6 +35,7 @@ public class LoginActivity extends AppCompatActivity {
     public static String USER_PREFERENCES = "USER_PREFERENCES";
     public static String USER_TOKEN = "USER_TOKEN";
     public static String IS_USER_LOGIN = "IS_USER_LOGIN";
+    public static String USER_EMAIL = "USER_EMAIL";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -70,6 +71,7 @@ public class LoginActivity extends AppCompatActivity {
                         SharedPreferences.Editor editor = sharedPreferences.edit();
                         editor.putString(USER_TOKEN, token);
                         editor.putBoolean(IS_USER_LOGIN, true);
+                        editor.putString(USER_EMAIL, mUserEmail.getText().toString().trim());
                         editor.commit();
 
                         Intent intent = new Intent(LoginActivity.this, MainActivity.class);
@@ -89,7 +91,7 @@ public class LoginActivity extends AppCompatActivity {
     public void checkAccess(final ServerCallbackLogin serverCallbackLogin) {
         ServiceApi service = ApiManager.getService();
 
-        Call<LoginResponse> call = service.login(mUserEmail.getText().toString(), mUserPassword.getText().toString());
+        Call<LoginResponse> call = service.login(mUserEmail.getText().toString().trim(), mUserPassword.getText().toString().trim());
         call.enqueue(new Callback<LoginResponse>() {
             @Override
             public void onResponse(Call<LoginResponse> call, Response<LoginResponse> response) {

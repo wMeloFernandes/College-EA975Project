@@ -13,16 +13,11 @@ export class QrCodeComponent implements OnInit {
   constructor(public appService: AppService) { }
 
   ngOnInit() {
-    console.log('começou');
-    interval(1000).subscribe(resp=>{
-      console.log('começou 1');
-      this.qrCode = localStorage.getItem('key');
-      let key = Math.random().toString(36);
-        this.appService.updateQrCodeKey(key)
+    interval(30000).subscribe(()=>{
+        this.appService.updateQrCodeKey()
           .subscribe(resp=>{
-            localStorage.setItem('key', key);
-            this.qrCode = key;
-            window.location.reload();
+            console.log(resp['key']);
+            this.qrCode = resp['key'];
           }, (err)=>{
             console.error(err);
             alert("Problema no sistema");

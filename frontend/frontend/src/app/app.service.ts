@@ -88,12 +88,8 @@ export class AppService {
     return this.http.get(BACKEND_URL + "time" + queryParams)
   }
 
-  updateQrCodeKey(key: any){
-    let body = {
-      key: key
-    };
-    
-    return this.http.post(BACKEND_URL + "key", body);
+  updateQrCodeKey(){
+    return this.http.get(BACKEND_URL + "key");
   }
 
 }
