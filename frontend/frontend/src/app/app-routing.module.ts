@@ -4,12 +4,14 @@ import { ListUsersComponent } from './list-users/list-users.component';
 import { NewUserComponent } from './new-user/new-user.component';
 import { LoginComponent } from './login/login.component'
 import { DetailUserComponent } from './detail-user/detail-user.component';
+import { TimeUserComponent } from './time-user/time-user.component';
 
 const routes: Routes = [
   { path: '', component: LoginComponent},
   { path: 'listusers', component: ListUsersComponent},
   { path: 'newuser', component: NewUserComponent },
-  { path: 'detailUser', component: DetailUserComponent }
+  { path: 'detailUser/:email', component: DetailUserComponent },
+  { path: 'timeUser/:email', component: TimeUserComponent }
 ];
 
 @NgModule({

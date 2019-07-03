@@ -89,5 +89,9 @@ export class AppService {
       });
   }
 
+  getClockRegisters(email: string){
+    const queryParams = `?email=${email}`;
+    return this.http.get(BACKEND_URL + "time" + queryParams)
+  }
 
 }

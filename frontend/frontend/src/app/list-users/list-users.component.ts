@@ -28,11 +28,12 @@ export class ListUsersComponent implements OnInit {
 
   viewUserInfo(email: any){
     console.log(email);
+    this.router.navigate(['/timeUser', email]);
   }
 
   updateUser(email: any){
     console.log(email);
-    this.router.navigate(['/detailUser']);
+    this.router.navigate(['/detailUser', email]);
   }
 
   deleteUser(email: any){

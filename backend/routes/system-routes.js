@@ -33,6 +33,12 @@ module.exports = function(app){
             AdminController.generateQRCode(app, req, res);
         });
 
+    app.route('/time')
+        .get((req, res)=>{
+            UserController.getClockRegister(app, req, res);
+        });
+    
+
     app.route('/user')
         .get(checkAuth, (req, res)=>{
             UserController.getClockRegister(app, req, res);

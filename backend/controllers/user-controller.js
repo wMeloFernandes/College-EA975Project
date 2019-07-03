@@ -22,7 +22,7 @@ module.exports.clockIn = (app, req, res)=>{
 
 module.exports.getClockRegister = (app, req, res)=>{
     const clockModel = {
-        email: req.body.email
+        email: req.query.email
     };
 
     const ClockDAO = new app.database.dao.ClockDAO();
