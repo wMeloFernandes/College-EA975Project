@@ -81,12 +81,14 @@
                   <tr>
                     <th>Name</th>
                     <th>Position</th>
+                    <th>Update</th>
                   </tr>
                 </thead>
                 <tbody>
-                  <tr *ngFor="let user of userList; let i = index">
-                    <td>{{user.name}}</td>
-                    <td>{{user.job}}</td>
+                  <tr>
+                    <td><input value="{{name}}" (input)="onGetname($event)"></td>
+                    <td><input value="{{job}}" (input)="onGetJob($event)"></td>
+                    <td><a class="btn btn-primary btn-block" (click)="updateUser()">Update</a></td>
                   </tr>
                 </tbody>
               </table>

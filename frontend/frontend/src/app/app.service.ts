@@ -29,10 +29,7 @@ export class AppService {
   getUserById(email: string){
     const queryParams = `?email=${email}`;
 
-    this.http.get(BACKEND_URL + "admin" + queryParams)
-      .subscribe(result=>{
-        console.log(result);
-      });
+    return this.http.get(BACKEND_URL + "admin" + queryParams);
   }
 
 
@@ -54,10 +51,7 @@ export class AppService {
       email: email
     };
 
-    this.http.put(BACKEND_URL + "admin", body)
-      .subscribe(result=>{
-        console.log(result);
-      });
+    return this.http.put(BACKEND_URL + "admin", body)
   }
 
   deleteUser(email: string){

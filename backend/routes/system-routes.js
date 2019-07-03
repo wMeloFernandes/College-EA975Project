@@ -43,7 +43,7 @@ module.exports = function(app){
         .get(checkAuth, (req, res)=>{
             UserController.getClockRegister(app, req, res);
         })
-        .post(checkAuth, (req, res)=>{
+        .post( (req, res)=>{
             UserController.clockIn(app, req, res);
         });
 
