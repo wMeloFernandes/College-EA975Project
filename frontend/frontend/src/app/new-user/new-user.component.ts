@@ -57,7 +57,11 @@ export class NewUserComponent implements OnInit {
             this.router.navigate(['/listusers']);
           },(err)=>{
             if(err){console.error(err)};
-            alert("Erro ao criar novo usuário!");
+            if(err.status === 409){
+              alert("E-mail já cadastrado!");
+            }else{
+              alert("Erro ao criar novo usuário!");  
+            }
           })
       }else{
         alert("As senhas não coincidem. Tente novamente!");

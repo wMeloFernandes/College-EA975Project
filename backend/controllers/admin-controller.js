@@ -36,19 +36,31 @@ module.exports.createUser = (app, req, res)=>{
         email: req.body.email,
         password: req.body.password
     };
+    const userModel2 = {
+        email: req.body.email
+    };
     
     const UserDAO = new app.database.dao.UserDAO();
-    UserDAO.createUser(userModel, (err)=>{
-        if(err){
-            console.error(err);
-            res.send('Problem when create new user');
-        }else{
-            res.status(200).json({
-                message: "User created!"
+    UserDAO.getUserByEmail(userModel2, (err, result)=>{
+        if(result !== undefined && result !== null){
+            res.status(409).json({
+                message: "User already exists!"
             });
+        }else{
+            console.log('2');
+            UserDAO.createUser(userModel, (err)=>{
+                if(err){
+                    console.error(err);
+                    res.send('Problem when create new user');
+                }else{
+                    res.status(200).json({
+                        message: "User created!"
+                    });
+                }
+               
+            });   
         }
-       
-    });   
+    });
 }
 
 module.exports.createAdmin = (app, req, res)=>{
