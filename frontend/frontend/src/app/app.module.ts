@@ -8,7 +8,8 @@ import { ListUsersComponent } from './list-users/list-users.component';
 import { AppRoutingModule } from './app-routing.module';
 import { DetailUserComponent } from './detail-user/detail-user.component';
 import { NewUserComponent } from './new-user/new-user.component';
-import { HttpClientModule } from '@angular/common/http'
+import { HttpClientModule } from '@angular/common/http';
+import { HomeComponent } from './home/home.component'
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { HttpClientModule } from '@angular/common/http'
     LoginComponent,
     ListUsersComponent,
     DetailUserComponent,
-    NewUserComponent
+    NewUserComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,

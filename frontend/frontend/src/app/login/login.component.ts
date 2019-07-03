@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { AppService } from './../app.service'
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -29,7 +30,16 @@ export class LoginComponent implements OnInit {
   }
 
   makeLogin(){
-    this.appService.login(this.email, this.password);
+    this.appService.login(this.email, this.password)
+      .subscribe(resp=>{
+        console.log('sucesso');
+        console.log(resp);
+        //this.loginEvent.emit(true);
+        this.router.navigate(['/home']);
+      },(err)=>{
+        console.error(err);
+        alert("Usuário/Senha inválido(s)!");
+      });
   }
 
 }
