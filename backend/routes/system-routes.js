@@ -1,6 +1,8 @@
 const AdminController = require('./../controllers/admin-controller');
 const UserController = require('./../controllers/user-controller');
 const checkAuth = require('./../middleware/check-auth-app');
+const rand = require("generate-key");
+
 
 
 module.exports = function(app){
@@ -43,14 +45,16 @@ module.exports = function(app){
         .get(checkAuth, (req, res)=>{
             UserController.getClockRegister(app, req, res);
         })
-        .post( (req, res)=>{
+        .post(checkAuth, (req, res)=>{
             UserController.clockIn(app, req, res);
         });
 
     app.route('/key')
-        .post((req, res)=>{
-            global.qrCodeKey = req.body.key;
-            console.log(global.qrCodeKey);
+        .get((req, res)=>{
+            global.qrCodeKey = rand.generateKey(64);
+            res.status(200).json({
+                key: global.qrCodeKey
+            });
         })
         
 
