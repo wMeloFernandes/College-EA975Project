@@ -13,7 +13,7 @@ export class LoginComponent implements OnInit {
   private password: string;
 
 
-  constructor(public appService: AppService){
+  constructor(public appService: AppService, public router: Router){
   }
 
   ngOnInit() {
@@ -35,7 +35,7 @@ export class LoginComponent implements OnInit {
         console.log('sucesso');
         console.log(resp);
         //this.loginEvent.emit(true);
-        this.router.navigate(['/home']);
+        this.router.navigate(['/listusers']);
       },(err)=>{
         console.error(err);
         alert("Usuário/Senha inválido(s)!");

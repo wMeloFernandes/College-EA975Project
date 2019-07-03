@@ -1,21 +1,37 @@
-<div class="container">
-	<div class="jumbotron">
-		<h1>SAP </h1>
-		<h2>Login Adminstrativo</h2>
-	</div>
-</div>
-<div class="container">
-	<div class="row justify-content-center">
-		<div class="col-4">
-			<div class="card">
-				<form class="form-inline">
-					<div>
-						<input class="form-control" type="email" (input)="onGetEmail($event)" placeholder="E-mail"/>
-						<input class="form-control" type="password" (input)="onGetPassword($event)"  placeholder="Senha"/>
-						<input  class="form-control" type="button" value="Login" (click)="makeLogin()"/>
-					</div>
-				</form>
-			</div>
-		</div>
-	</div>
-</div>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+
+  <title>SAP</title>
+
+</head>
+
+<body>
+
+  <div class="container">
+    <div class="card card-login mx-auto mt-5">
+      <div class="card-header">Login</div>
+      <div class="card-body">
+        <form>
+          <div class="form-group">
+            <div class="form-label-group">
+              <input class="form-control" placeholder="E-mail" type="email" (input)="onGetEmail($event)">
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="form-label-group">
+              <input type="password" placeholder="Password" (input)="onGetPassword($event)" class="form-control">
+            </div>
+          </div>
+          <a class="btn btn-primary btn-block" (click)="makeLogin()">Login</a>
+        </form>
+      </div>
+    </div>
+  </div>
+
+</body>
+
+</html>

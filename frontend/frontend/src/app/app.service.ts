@@ -44,10 +44,7 @@ export class AppService {
       password: password
     };
 
-    this.http.post(BACKEND_URL + "admin", body)
-      .subscribe(result=>{
-        console.log(result);
-      });
+    return this.http.post(BACKEND_URL + "admin", body);
   }
 
   updateUser(name: string, job:string, email: string){
@@ -65,10 +62,7 @@ export class AppService {
 
   deleteUser(email: string){
     const queryParams = `?email=${email}`;
-    this.http.delete(BACKEND_URL + "admin" + queryParams)
-      .subscribe(result=>{
-        console.log(result);
-      });
+    return this.http.delete(BACKEND_URL + "admin" + queryParams)
   }
 
   getAllUsers(){
