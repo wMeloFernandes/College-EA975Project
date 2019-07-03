@@ -85,7 +85,7 @@
                 </thead>
                 <tbody>
                   <tr *ngFor="let time of timerList; let i = index">
-                    <td>{{time.timestamp}}</td>
+                    <td>{{time.timestamp | date:'dd/MM/yyyy hh:mm:ss'}}</td>
                     <td *ngIf="i%2==0">Entrada</td>
                     <td *ngIf="i%2!==0">Saída</td>
                   </tr>

@@ -34,7 +34,6 @@ export class LoginComponent implements OnInit {
       .subscribe(resp=>{
         console.log('sucesso');
         console.log(resp);
-        //this.loginEvent.emit(true);
         this.router.navigate(['/listusers']);
       },(err)=>{
         console.error(err);

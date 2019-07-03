@@ -19,6 +19,12 @@ export class TimeUserComponent implements OnInit {
     this.appService.getClockRegisters(this.email)
       .subscribe(resp=>{
         this.timerList = resp['registers'];
+        console.log(this.timerList);
+        let dateNow : Date = new Date();
+        let dateNowISO = dateNow.toISOString();
+        console.log(dateNow);
+        console.log(dateNowISO);
+        
       },(err)=>{
         if(err){console.error(err)}
         alert("Erro ao coletar registros do usuário");
