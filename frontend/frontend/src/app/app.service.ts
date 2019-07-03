@@ -22,10 +22,7 @@ export class AppService {
       password: password
     };
 
-    this.http.post(BACKEND_URL + "loginAdm", body)
-      .subscribe(result=>{
-        console.log(result);
-      });
+    return this.http.post(BACKEND_URL + "loginAdm", body);
   }
 
 
