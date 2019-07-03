@@ -47,4 +47,11 @@ module.exports = function(app){
             UserController.clockIn(app, req, res);
         });
 
+    app.route('/key')
+        .post((req, res)=>{
+            global.qrCodeKey = req.body.key;
+            console.log(global.qrCodeKey);
+        })
+        
+
 }

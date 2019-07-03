@@ -10,6 +10,8 @@ import { DetailUserComponent } from './detail-user/detail-user.component';
 import { NewUserComponent } from './new-user/new-user.component';
 import { HttpClientModule } from '@angular/common/http';
 import { TimeUserComponent } from './time-user/time-user.component';
+import { QrCodeComponent } from './qr-code/qr-code.component';
+import { QRCodeModule } from 'angular2-qrcode';
 
 @NgModule({
   declarations: [
@@ -18,13 +20,15 @@ import { TimeUserComponent } from './time-user/time-user.component';
     ListUsersComponent,
     DetailUserComponent,
     NewUserComponent,
-    TimeUserComponent
+    TimeUserComponent,
+    QrCodeComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    QRCodeModule
   ],
   providers: [],
   bootstrap: [AppComponent]

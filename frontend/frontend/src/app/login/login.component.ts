@@ -32,9 +32,11 @@ export class LoginComponent implements OnInit {
   makeLogin(){
     this.appService.login(this.email, this.password)
       .subscribe(resp=>{
-        console.log('sucesso');
-        console.log(resp);
-        this.router.navigate(['/listusers']);
+        if(this.email === 'qrcode'){
+          this.router.navigate(['/qrCode']);
+        }else{
+          this.router.navigate(['/listusers']);
+        }
       },(err)=>{
         console.error(err);
         alert("Usuário/Senha inválido(s)!");
