@@ -9,6 +9,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { DetailUserComponent } from './detail-user/detail-user.component';
 import { NewUserComponent } from './new-user/new-user.component';
 import { HttpClientModule } from '@angular/common/http';
+import { TimeUserComponent } from './time-user/time-user.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { HttpClientModule } from '@angular/common/http';
     LoginComponent,
     ListUsersComponent,
     DetailUserComponent,
-    NewUserComponent
+    NewUserComponent,
+    TimeUserComponent
   ],
   imports: [
     BrowserModule,

@@ -26,6 +26,15 @@ export class ListUsersComponent implements OnInit {
     console.log(this.selectedUser);
   }
 
+  viewUserInfo(email: any){
+    console.log(email);
+  }
+
+  updateUser(email: any){
+    console.log(email);
+    this.router.navigate(['/detailUser']);
+  }
+
   deleteUser(email: any){
     this.appService.deleteUser(email)
       .subscribe(resp=>{

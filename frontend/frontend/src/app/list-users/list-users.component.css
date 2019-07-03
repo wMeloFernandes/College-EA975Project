@@ -2617,7 +2617,19 @@
     background-color: #007bff;
     border-color: #007bff;
   }
-  
+
+  .btn-delete {
+    color: #fff;
+    background-color: #ff0000;
+    border-color: #ff0000;
+  }
+ 
+  .btn-view {
+    color: #fff;
+    background-color: #008000;
+    border-color: #008000;
+  }
+
   .btn-primary:hover {
     color: #fff;
     background-color: #0069d9;

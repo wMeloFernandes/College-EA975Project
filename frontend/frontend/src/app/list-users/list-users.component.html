@@ -82,6 +82,8 @@
                     <th>Name</th>
                     <th>Position</th>
                     <th>E-mail</th>
+                    <th>View Times</th>
+                    <th>Update</th>
                     <th>Delete?</th>
                   </tr>
                 </thead>
@@ -90,7 +92,9 @@
                     <td>{{user.name}}</td>
                     <td>{{user.job}}</td>
                     <td>{{user.email}}</td>
-                    <td><button (click)="deleteUser(user.email)">Delete</button></td>
+                    <td><a class="btn btn-view btn-block" (click)="viewUserInfo(user.email)">View</a></td>
+                    <td><a class="btn btn-primary btn-block" (click)="updateUser(user.email)">Update</a></td>
+                    <td><a class="btn btn-delete btn-block" (click)="deleteUser(user.email)">Delete</a></td>
                   </tr>
                 </tbody>
               </table>
