@@ -46,7 +46,8 @@ public class MainActivity extends AppCompatActivity {
     private View.OnClickListener registerListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-
+            Intent i = new Intent(MainActivity.this, RegistersActivity.class);
+            startActivity(i);
         }
     };
 
@@ -90,12 +91,11 @@ public class MainActivity extends AppCompatActivity {
         finishAffinity();
     }
 
-    public void registerTime(final ServerCallbackLogin serverCallbackLogin, String key) {
+    private void registerTime(final ServerCallbackLogin serverCallbackLogin, String key) {
         ServiceApi service = ApiManager.getService();
         String userEmail = getSharedPreferences(USER_PREFERENCES, Context.MODE_PRIVATE).getString(USER_EMAIL,"");
         String token = getSharedPreferences(USER_PREFERENCES, Context.MODE_PRIVATE).getString(USER_TOKEN, "");
 
-        Log.v("WILLIAN", token);
         Call<RegisterResponse> call = service.clockIn(token, userEmail, key);
         call.enqueue(new Callback<RegisterResponse>() {
             @Override

@@ -2,6 +2,7 @@ package com.example.wmell.registerproject.service;
 
 import com.example.wmell.registerproject.model.LoginResponse;
 import com.example.wmell.registerproject.model.RegisterResponse;
+import com.example.wmell.registerproject.model.TimeResponse;
 
 import retrofit2.Call;
 import retrofit2.http.Field;
@@ -24,5 +25,5 @@ public interface ServiceApi {
                                    @Field("key") String key);
 
     @GET("/user")
-    Call<RegisterResponse> getRegister(@Query("email") String email);
+    Call<TimeResponse> getRegister(@Header("Authorization") String authHeader, @Query("email") String email);
 }
